@@ -21,7 +21,7 @@
         <h1>Withdraw Worldcoins here!</h1>
         <p>Copy the below address to your worldcoin app</p>
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">WorldCoin Address</label>
+            <label for="exampleFormControlInput1" class="form-label">WorldCoin Address:</label>
             <input class="form-control" type="text" disabled value="0x937a8c95f8e27ed327dfb861f790c383dedd380f" id="myInput">
         </div>
         
@@ -32,11 +32,10 @@
         </div>
             
         <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">M-Pesa number</label>
-            <input required type="number" class="form-control" id="exampleFormControlInput1" placeholder="mpesa number">
+            <label for="exampleFormControlInput1" class="form-label">M-Pesa number:</label>
+            <input required type="number" class="form-control" id="exampleFormControlInput1" placeholder="Phone number">
         </div>
         <p>Click to upload a screenshot of successful deposit:</p>
-
         <div class="mb-3">
             <form>
             <input required type="file" id="myFile" name="filename">
@@ -44,7 +43,7 @@
             </form>
         </div>
             <div id="liveAlertPlaceholder" ></div>
-            <button id="liveAlertBtn" class="btn btn-outline-primary" type="button">
+            <button style="width:100%;" onclick=conf() id="liveAlertBtn" class="btn btn-outline-primary" type="button">
                 Get money
             </button>
     </div>
