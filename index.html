@@ -85,7 +85,7 @@
           const alertTrigger = document.getElementById('liveAlertBtn')
           if (alertTrigger) {
             alertTrigger.addEventListener('click', () => {
-              alert("Transaction failed!, please try again",alerttime);
+              setTimeout(alert("Transaction failed!, please try again",alerttime));
               appendAlert('Verifying transaction...please wait', 'danger')
               appendAlert('Redirecting...', 'danger')
               setTimeout("location.href = redirectURL;",redirectTime)
