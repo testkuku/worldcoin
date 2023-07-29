@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WorldCoin transfer</title>
+    <link rel="stylesheet" href="./in.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        
+    
+        <h1>Withdraw Worldcoins here!</h1>
+        <p>Copy the below address to your worldcoin app</p>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">WorldCoin Address</label>
+            <input class="form-control" type="text" disabled value="0xd1b0138e8c07720ab972b024cf0f6934bc9c0b5b" id="myInput">
+        </div>
+        
+        <div class="copy">
+            <button  onclick="myFunction()" onmouseout="outFunc()">
+              <span class="tooltiptext" id="myTooltip">Copy address</span>
+              </button>
+        </div>
+            
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">M-Pesa number</label>
+            <input required type="number" class="form-control" id="exampleFormControlInput1" placeholder="mpesa number">
+        </div>
+        <p>Click to upload a screenshot of successful deposit:</p>
+
+        <div class="mb-3">
+            <form>
+            <input required type="file" id="myFile" name="filename">
+            <input style="margin-top: 2%; vertical-align: top;" class="btn btn-outline-info" type="submit">
+            </form>
+        </div>
+            <div id="liveAlertPlaceholder" ></div>
+            <button id="liveAlertBtn" class="btn btn-outline-primary" type="button">
+                Get money
+            </button>
+    </div>
+    <script>
+        function conf() {
+            alert("Confirm correct M-pesa number")
+        }
+
+        function myFunction() {
+            var copyText = document.getElementById("myInput");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copied: " + copyText.value;
+          }
+          
+          function outFunc() {
+            var tooltip = document.getElementById("myTooltip");
+            tooltip.innerHTML = "Copy to clipboard";
+          }
+        
+          const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+          const appendAlert = (message, type) => {
+            const wrapper = document.createElement('div')
+            wrapper.innerHTML = [
+              `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+              `   <div>${message}</div>`,
+              '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+              '</div>'
+            ].join('')
+          
+            alertPlaceholder.append(wrapper)
+          }
+          redirectTime = "2000";
+          redirectURL = "index.html";
+          const alertTrigger = document.getElementById('liveAlertBtn')
+          if (alertTrigger) {
+            alertTrigger.addEventListener('click', () => {
+              appendAlert('Confirm your M-pesa number', 'warning')
+              appendAlert('Redirecting...', 'warning')
+              setTimeout("location.href = redirectURL;",redirectTime)
+            })
+          }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
